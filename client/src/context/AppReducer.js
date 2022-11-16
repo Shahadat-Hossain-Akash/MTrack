@@ -4,7 +4,7 @@ export default (state, action) =>{
         case "DELETE_TRANSACTION":
             return {
                 ...state,
-                transactions: state.transactions.filter(transaction => transaction.id !== action.payload)
+                transactions: state.transactions.filter(transaction => transaction._id !== action.payload)
                 
             }
         case "ADD_TRANSACTION":
@@ -13,6 +13,20 @@ export default (state, action) =>{
                 transactions: [action.payload,...state.transactions]
                     
             }
+        case "GET_TRANSACTION":
+            return {
+                ...state,
+                loading:false,
+                transactions: action.payload
+                    
+            }
+            case "ERROR":
+                return {
+                    ...state,
+                    error:true,
+                    transactions: action.payload
+                        
+                }
         default:
             return state;
     }

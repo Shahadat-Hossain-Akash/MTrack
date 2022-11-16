@@ -8,7 +8,7 @@ export const Transaction = ({transaction}) => {
   const {deleteTransaction} = useContext(GlobalContext)
   return (
     <div><li className={signClass}>
-    {transaction.text} <span>{sign}{Math.abs(transaction.amount)}</span><button onClick={() => deleteTransaction(transaction.id)} className="delete">X</button>
+    {transaction.text} <span>{sign}{Math.abs(transaction.amount)}</span><button onClick={() => deleteTransaction(transaction._id)} className="delete">X</button>
   </li></div>
   )
 }
