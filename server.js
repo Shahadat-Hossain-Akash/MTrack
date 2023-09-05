@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
 const connectDB = require('./config/db');
+const path = require('path');
 
 dotenv.config({path: './config/config.env'})
 connectDB()
@@ -26,3 +27,5 @@ if (process.env.NODE_PRO ==='production'){
 const PORT = process.env.PORT || 5001
 
 app.listen(PORT, console.log(`Server running on in ${process.env.NODE_DEV} mode on PORT ${PORT}`.blue.bold))
+
+//"dev": "concurrently \"npm run server\" \"npm run client\""
