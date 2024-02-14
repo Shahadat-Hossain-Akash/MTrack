@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, {useReducer, createContext} from "react";
 import AppReducer from './AppReducer'
 import axios from 'axios'
@@ -44,14 +45,14 @@ export const GlobalProvider = ({children}) => {
 
     const addTransaction = async (transaction) => {
 
-        const config = {
+        {/*const config = {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
+        }*/}
 
         try {
-            const res = await axios.post('/api/v1/transactions', transaction, config)
+            const res = await axios.post('/api/v1/transactions', transaction)
             dispatch({type: "ADD_TRANSACTION", payload: res.data.data})
             
         } catch (err) {
