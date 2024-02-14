@@ -37,5 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://m-track-chi.vercel.app/api/v1/transactions"
+  "proxy": "https://m-track-chi.vercel.app"
 }
