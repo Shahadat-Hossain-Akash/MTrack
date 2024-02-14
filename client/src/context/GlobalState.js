@@ -3,6 +3,7 @@ import React, {useReducer, createContext} from "react";
 import AppReducer from './AppReducer'
 import axios from 'axios'
 
+
 const initialState = {
     transactions: [],
     error: null,
@@ -17,7 +18,7 @@ export const GlobalProvider = ({children}) => {
 
     const getTransactions = async () => {
         try {
-            const res = await axios.get('/api/v1/transactions')
+            const res = await axios.get(`https://m-track-chi.vercel.app/api/v1/transactions`)
             dispatch({
                 type: "GET_TRANSACTION",
                 payload: res.data.data
@@ -33,7 +34,7 @@ export const GlobalProvider = ({children}) => {
 
     const deleteTransaction = async (id) => {
         try {
-            await axios.delete(`/api/v1/transactions/${id}`)
+            await axios.delete(`https://m-track-chi.vercel.app/api/v1/transactions/${id}`)
             dispatch({type: "DELETE_TRANSACTION", payload: id})
         } catch (err) {
             dispatch({
@@ -52,7 +53,7 @@ export const GlobalProvider = ({children}) => {
         }*/}
 
         try {
-            const res = await axios.post('/api/v1/transactions', transaction)
+            const res = await axios.post(`https://m-track-chi.vercel.app/api/v1/transactions`, transaction)
             dispatch({type: "ADD_TRANSACTION", payload: res.data.data})
             
         } catch (err) {

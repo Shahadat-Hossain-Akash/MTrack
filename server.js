@@ -11,6 +11,7 @@ connectDB()
 const transactions = require('./routes/transactions')
 
 const app = express()
+app.use(cors())
 
 app.use(express.json())
 
